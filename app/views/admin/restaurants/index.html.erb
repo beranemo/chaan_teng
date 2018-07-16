@@ -1,11 +1,16 @@
 <h1>餐廳後台</h1>
 
-
 <ul>
   <% @restaurants.each do |restaurant| %>
-  <li><%= restaurant.name %></li>
+  <li>
+    <%= restaurant.name %>
+    <%= link_to '內容',      admin_restaurant_path(restaurant) %>
+    <%= link_to '編輯', edit_admin_restaurant_path(restaurant) %>
+    <%= link_to '刪除',      admin_restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
   <% end %>
 </ul>
+
 
 
 <%= link_to "新增", new_admin_restaurant_path %>
