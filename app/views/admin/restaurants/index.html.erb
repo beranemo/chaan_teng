@@ -1,1 +1,11 @@
 <h1>餐廳後台</h1>
+
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+  <li><%= restaurant.name %></li>
+  <% end %>
+</ul>
+
+
+<%= link_to "新增", new_admin_restaurant_path %>
