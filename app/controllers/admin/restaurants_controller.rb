@@ -24,6 +24,21 @@ class Admin::RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
   end
+  
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
+  
+  def update
+    @restaurant = Restaurant.find(params[:id])
+    if @restaurant.update(restaurant_params)
+      flash[:notice] = "restaurant was successfully updated"
+      redirect_to admin_restaurant_path(@restaurant)
+    else
+      flash.now[:alert] = "restaurant was failed to update"
+      render :edit
+    end
+  end
 
   private
   
