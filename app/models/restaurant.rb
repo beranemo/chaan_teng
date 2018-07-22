@@ -11,9 +11,11 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  image         :string
+#  category_id   :integer
 #
 
 class Restaurant < ApplicationRecord
   validates :name, presence: true
   mount_uploader :image, PhotoUploader
+  belongs_to :category
 end
