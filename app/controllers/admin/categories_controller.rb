@@ -24,7 +24,6 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def update
-    byebug
     @category = Category.find(params[:id])
     if @category.update(category_params)
       redirect_to admin_categories_path
@@ -33,6 +32,13 @@ class Admin::CategoriesController < ApplicationController
       @categories = Category.all
       render :index
     end
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    flash[:alert] = "category was successfully deleted"
+    redirect_to admin_categories_path
   end
 
   private
