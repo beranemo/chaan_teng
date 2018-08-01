@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     resources :restaurants
     resources :categories, only: [:index, :create, :update]
   end
+  
+  resources :users, only: [:show, :edit, :update]
+  
 end
